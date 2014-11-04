@@ -3,7 +3,7 @@ laravel-elixir-jade
 
 Simple Laravel Elixir wrapper to compile Jade.
 
-Compiled Templates are located in your `/resources/views/` folder as usual.
+Compiled Templates are located in your `/resources/views/` folder as default.
 
 ### Installation
 Run the following command in your Laravel project:
@@ -16,19 +16,25 @@ Next, add the following line into your gulpfile.js:
 
 And your done!
 
-***NOTE: Jade files must be located in a `/resources/jade/` folder. Make sure to create one!***
+***NOTE: Jade files, with default options, should be in a `/resources/jade/` folder. Make sure to create one!***
 
 ### Options
 For Jade's options, see http://jade-lang.com/api/
 
-But wait, there's more! You can also set `blade: false` to compile to *.php instead of *.blade.php. That's all.
+But wait, there's more! You can also set `blade: false` to compile to *.php instead of *.blade.php.
+
+All other options should be pretty straight forward.
 
 These are the default options:
 
 ```javascript
 {
+    baseDir: './resources',
+    blade: true,
+    dest: '/views/',
     pretty: true,
-    blade: true
+    search: '**/*.jade',
+    src: '/jade/'
 }
 ```
 
@@ -40,7 +46,10 @@ var elixir = require('laravel-elixir');
 require('laravel-elixir-jade');
 
 elixir(function(mix) {
-    mix.jade();
+	mix.jade({
+        search: '*.jade',
+        src: '/templates/'
+	});
 });
 ```
 
@@ -62,4 +71,4 @@ div
 div Welcome back, {{ $username }}!
 ```
 
-***NOTE: Just remember to use ```!=``` to prevent HTML from being escaped in the output.***
+***NOTE: Just remember to use ```!=``` to prevent HTML from being escaped in the output or escape `"` and `'` yourself with a backslash.***
