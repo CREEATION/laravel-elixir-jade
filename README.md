@@ -18,6 +18,19 @@ And your done!
 
 ***NOTE: Jade files must be located in a `/resources/jade/` folder. Make sure to create one!***
 
+### Options
+For Jade's options, see http://jade-lang.com/api/
+But wait, there's more! You can also set `blade: false` to compile to *.php instead of *.blade.php.
+
+These are the default options:
+
+```javascript
+{
+    pretty: true,
+    blade: true
+}
+```
+
 ### Example gulpfile.js
 
 ```javascript
