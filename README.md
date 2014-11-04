@@ -1,18 +1,18 @@
-laravel-elixir-jade-blade
+laravel-elixir-jade
 =========================
 
-Simple Laravel Elixir wrapper to compile Jade to Blade.
+Simple Laravel Elixir wrapper to compile Jade.
 
-Compiled Blade Templates are located in your `/resources/views/` folder as usual.
+Compiled Templates are located in your `/resources/views/` folder as usual.
 
 ### Installation
 Run the following command in your Laravel project:
 
-    npm install laravel-elixir-jade-blade
+    npm install laravel-elixir-jade
 
 Next, add the following line into your gulpfile.js:
 
-    require('laravel-elixir-jade-blade');
+    require('laravel-elixir-jade');
 
 And your done!
 
@@ -23,7 +23,7 @@ And your done!
 ```javascript
 var elixir = require('laravel-elixir');
 
-require('laravel-elixir-jade-blade');
+require('laravel-elixir-jade');
 
 elixir(function(mix) {
     mix.jade();

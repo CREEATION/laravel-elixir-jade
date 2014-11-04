@@ -1,6 +1,6 @@
 {
-  "name": "laravel-elixir-jade-blade",
-  "version": "0.1.1",
+  "name": "laravel-elixir-jade",
+  "version": "0.1.1-alpha",
   "description": "Simple Laravel Elixir wrapper to compile Jade to Blade.",
   "main": "index.js",
   "scripts": {
@@ -10,16 +10,15 @@
     "gulp",
     "laravel",
     "elixir",
-    "jade",
-    "blade"
+    "jade"
   ],
   "author": "Thomas Creeten",
   "license": "MIT",
-  "homepage": "https://github.com/CREEATION/laravel-elixir-jade-blade",
-  "bugs": "https://github.com/CREEATION/laravel-elixir-jade-blade/issues",
+  "homepage": "https://github.com/CREEATION/laravel-elixir-jade",
+  "bugs": "https://github.com/CREEATION/laravel-elixir-jade/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/CREEATION/laravel-elixir-jade-blade"
+    "url": "https://github.com/CREEATION/laravel-elixir-jade"
   },
   "dependencies": {
     "gulp-jade": "^0.9.0",

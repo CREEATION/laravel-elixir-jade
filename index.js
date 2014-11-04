@@ -7,11 +7,11 @@ var _ = require('underscore');
 
 /*
  |----------------------------------------------------------------
- | Jade -> Blade
+ | Gulp Jade Wrapper
  |----------------------------------------------------------------
  |
- | This task will compile your Jade files into Blade files to make
- | use of the built-in Blade functions in your views.
+ | This task will compile your Jade files into your views folder.
+ | You can make use of Blade variables in your jade files as well.
  |
  */
 
@@ -22,19 +22,20 @@ elixir.extend('jade', function (src, output, options) {
     src = this.buildGulpSrc(src, baseDir, '**/*.jade');
 
     options = _.extend({
-        pretty: true
+        pretty: true,
+        blade: true
     }, options);
 
     gulp.task('jade', function () {
         return gulp.src(src)
             .pipe(jade(options))
 			.pipe(rename(function (path) {
-				path.extname = ".blade.php"
+				path.extname = (options.blade === true ? '.blade.php' : '.php')
 			}))
             .pipe(gulp.dest(output || 'resources/views/'))
             .pipe(notify({
                 title: 'Jade successfully compiled!',
-                message: 'All Jade Templates have been compiled to Blade Templates.',
+                message: 'All Jade Templates have been compiled.',
                 icon: __dirname + '/../laravel-elixir/icons/pass.png'
             }));
     });
