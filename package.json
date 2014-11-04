@@ -1,7 +1,7 @@
 {
   "name": "laravel-elixir-jade",
-  "version": "0.1.1-alpha",
-  "description": "Simple Laravel Elixir wrapper to compile Jade to Blade.",
+  "version": "0.1.2-alpha",
+  "description": "Simple Laravel Elixir wrapper to compile Jade",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

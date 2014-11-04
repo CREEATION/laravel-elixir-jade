@@ -20,7 +20,8 @@ And your done!
 
 ### Options
 For Jade's options, see http://jade-lang.com/api/
-But wait, there's more! You can also set `blade: false` to compile to *.php instead of *.blade.php.
+
+But wait, there's more! You can also set `blade: false` to compile to *.php instead of *.blade.php. That's all.
 
 These are the default options:
 
@@ -42,3 +43,23 @@ elixir(function(mix) {
     mix.jade();
 });
 ```
+
+### Usage
+If you want to use something like `url()` or `URL::asset()`, you can do it like this:
+
+```jade
+//- Example Stylesheet
+link(href!='{{ URL::asset("assets/css/example.css") }}', rel='stylesheet')
+
+//- Attributes
+span(class='{{ $cool_class }}')
+
+//- Block
+div
+	| Hello {{ $username }}!
+
+//- Inline
+div Welcome back, {{ $username }}!
+```
+
+***NOTE: Just remember to use ```!=``` to prevent HTML from being escaped in the output.***
