@@ -1,7 +1,7 @@
 laravel-elixir-jade
 =========================
 
-Simple Laravel Elixir wrapper to compile Jade.
+Simple Laravel Elixir wrapper to compile Jade to Blade.
 
 Compiled Templates are located in your `/resources/views/` folder as default.
 
