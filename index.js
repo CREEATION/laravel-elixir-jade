@@ -43,6 +43,7 @@ elixir.extend('jade', function (options) {
 
     gulp.task('jade', function () {
         return gulp.src(gulp_src)
+            .pipe(plumber())
             .pipe(jade(jade_options))
             .pipe(rename(function (path) {
                 path.extname = (options.blade === true ? '.blade.php' : '.php')
