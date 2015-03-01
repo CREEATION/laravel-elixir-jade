@@ -1,9 +1,10 @@
-var elixir = require('laravel-elixir');
-var gulp = require('gulp');
-var jade = require('gulp-jade');
-var rename = require('gulp-rename');
-var notify = require('gulp-notify');
-var _ = require('underscore');
+var elixir  = require('laravel-elixir');
+var gulp    = require('gulp');
+var jade    = require('gulp-jade');
+var rename  = require('gulp-rename');
+var plumber = require('gulp-plumber');
+var notify  = require('gulp-notify');
+var _       = require('underscore');
 
 /*
  |----------------------------------------------------------------
