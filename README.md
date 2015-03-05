@@ -54,6 +54,9 @@ elixir(function(mix) {
 ```
 
 ### Usage
+#### Mixins for Blade statements
+**[@JaminFarr](https://github.com/JaminFarr)** made an [excellent gist of jade mixins](https://gist.github.com/JaminFarr/0b875916b39bf83c4b06) which you can use with `laravel-elixir-jade`.
+
 If you want to use something like `url()` or `URL::asset()`, you can do it like this:
 
 ```jade
