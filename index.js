@@ -41,6 +41,8 @@ elixir.extend('jade', function (options) {
         'compiler'
     );
 
+    jade_options.basedir = options.baseDir + options.src;
+
     gulp.task('jade', function () {
         return gulp.src(gulp_src)
             .pipe(plumber())
