@@ -44,15 +44,18 @@ elixir.extend('jade', function (options) {
 
     jade_options.basedir = options.baseDir + options.src;
 
+    var gulp_dest = options.baseDir + options.dest;
+    var extension = (options.blade === true ? '.blade.php' : '.php');
+
     gulp.task('jade', function () {
         return gulp.src(gulp_src)
             .pipe(plumber())
-            .pipe(changed(options.baseDir + options.dest))
+            .pipe(changed(gulp_dest, { extension: extension }))
             .pipe(jade(jade_options))
             .pipe(rename(function (path) {
-                path.extname = (options.blade === true ? '.blade.php' : '.php')
+                path.extname = extension
             }))
-            .pipe(gulp.dest(options.baseDir + options.dest))
+            .pipe(gulp.dest(gulp_dest))
             .pipe(notify({
                 title: 'Jade completed',
                 message: 'All Jade Templates have been compiled.',
