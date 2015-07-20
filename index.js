@@ -4,6 +4,7 @@ var jade    = require('gulp-jade');
 var rename  = require('gulp-rename');
 var plumber = require('gulp-plumber');
 var notify  = require('gulp-notify');
+var changed = require('gulp-changed');
 var _       = require('underscore');
 
 /*
@@ -46,6 +47,7 @@ elixir.extend('jade', function (options) {
     gulp.task('jade', function () {
         return gulp.src(gulp_src)
             .pipe(plumber())
+            .pipe(changed(options.baseDir + options.dest))
             .pipe(jade(jade_options))
             .pipe(rename(function (path) {
                 path.extname = (options.blade === true ? '.blade.php' : '.php')
