@@ -6,6 +6,8 @@ var plumber = require('gulp-plumber');
 var notify  = require('gulp-notify');
 var _       = require('underscore');
 
+var Task = elixir.Task;
+
 /*
  |----------------------------------------------------------------
  | Gulp Jade Wrapper
@@ -43,7 +45,7 @@ elixir.extend('jade', function (options) {
 
     jade_options.basedir = options.baseDir + options.src;
 
-    gulp.task('jade', function () {
+    new Task('jade', function() {
         return gulp.src(gulp_src)
             .pipe(plumber())
             .pipe(jade(jade_options))
@@ -56,12 +58,7 @@ elixir.extend('jade', function (options) {
                 message: 'All Jade Templates have been compiled.',
                 icon: __dirname + '/../laravel-elixir/icons/pass.png'
             }));
-    });
-
-    this.registerWatcher('jade', [
-        options.baseDir + options.src + options.search
-    ]);
-
-    return this.queueTask('jade');
+    })
+    .watch([ options.baseDir + options.src + options.search ]);
 
 });
