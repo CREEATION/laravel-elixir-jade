@@ -62,7 +62,7 @@ elixir.extend('jade', function (options) {
             .pipe(gulp.dest(gulp_dest))
             .pipe(notify({
                 title: 'Jade completed',
-                message: 'All Jade Templates have been compiled.',
+                message: '<%= file.relative %> have been compiled.',
                 icon: __dirname + '/../laravel-elixir/icons/pass.png'
             }));
     })
