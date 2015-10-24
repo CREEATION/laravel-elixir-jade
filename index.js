@@ -1,12 +1,12 @@
-var elixir   = require('laravel-elixir');
-var gulp     = require('gulp');
-var jade     = require('gulp-jade');
-var rename   = require('gulp-rename');
-var plumber  = require('gulp-plumber');
-var notify   = require('gulp-notify');
-var changed  = require('gulp-changed');
-var affected = require('gulp-jade-find-affected');
-var _        = require('underscore');
+var elixir          = require('laravel-elixir');
+var gulp            = require('gulp');
+var jade            = require('gulp-jade');
+var rename          = require('gulp-rename');
+var plumber         =  require('gulp-plumber');
+var notify          = require('gulp-notify');
+var changed         = require('gulp-changed');
+var jadeInheritance = require('gulp-jade-inheritance');
+var _               = require('underscore');
 
 var Task = elixir.Task;
 
@@ -54,7 +54,7 @@ elixir.extend('jade', function (options) {
         return gulp.src(gulp_src)
             .pipe(plumber())
             .pipe(changed(gulp_dest, { extension: extension }))
-            .pipe(affected())
+            .pipe(jadeInheritance({basedir: options.baseDir + options.src }))
             .pipe(jade(jade_options))
             .pipe(rename(function (path) {
                 path.extname = extension
