@@ -24,6 +24,7 @@ elixir.extend('jade', function (options) {
     options = _.extend({
         baseDir: './resources',
         blade: true,
+        html:false,
         dest: '/views/',
         pretty: true,
         search: '**/*.jade',
@@ -50,7 +51,7 @@ elixir.extend('jade', function (options) {
             .pipe(plumber())
             .pipe(jade(jade_options))
             .pipe(rename(function (path) {
-                path.extname = (options.blade === true ? '.blade.php' : '.php')
+                path.extname = (options.html === true ? '.html' : (options.blade === true ? '.blade.php' : '.php') )
             }))
             .pipe(gulp.dest(options.baseDir + options.dest))
             .pipe(notify({
