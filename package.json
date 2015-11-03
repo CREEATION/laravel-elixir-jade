@@ -1,6 +1,6 @@
 {
   "name": "laravel-elixir-jade",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Simple Laravel Elixir wrapper to compile Jade",
   "main": "index.js",
   "scripts": {
@@ -12,19 +12,36 @@
     "elixir",
     "jade"
   ],
-  "author": "Thomas Creeten",
+  "author": {
+    "name": "Thomas Creeten"
+  },
   "license": "MIT",
   "homepage": "https://github.com/CREEATION/laravel-elixir-jade",
-  "bugs": "https://github.com/CREEATION/laravel-elixir-jade/issues",
+  "bugs": {
+    "url": "https://github.com/CREEATION/laravel-elixir-jade/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/CREEATION/laravel-elixir-jade"
   },
   "dependencies": {
-    "gulp-jade": "^0.9.0",
-    "gulp-notify": "^2.0.0",
+    "gulp-jade": "^1.0.0",
+    "gulp-notify": "^2.2.0",
     "gulp-plumber": "^0.6.6",
     "gulp-rename": "^1.2.0",
-    "underscore": "^1.7.0"
+    "underscore": "^1.7.0",
+    "gulp-changed": "^1.2.0",
+    "gulp-jade-inheritance": "git://github.com/juanfran/gulp-jade-inheritance"
+  },
+  "gitHead": "857ffd37dd1d1285511f802be73fc5713a532895",
+  "readme": "laravel-elixir-jade\n=========================\n\nSimple Laravel Elixir wrapper to compile Jade to Blade/PHP.\n\nCompiled Templates are located in your `/resources/views/` folder as default.\n\n### Installation\nRun the following command in your Laravel project:\n\n    npm install laravel-elixir-jade\n\nNext, add the following line into your gulpfile.js:\n\n    require('laravel-elixir-jade');\n\nAnd your done!\n\n***NOTE: Jade files, with default options, should be in a `/resources/jade/` folder. Make sure to create one!***\n\n### Options\nFor Jade's options, see http://jade-lang.com/api/\n\nBut wait, there's more! You can also set `blade: false` to compile to *.php instead of *.blade.php.\n\nAll other options should be pretty straight forward.\n\nThese are the default options:\n\n```javascript\n{\n    baseDir: './resources',\n    blade: true,\n    dest: '/views/',\n    pretty: true,\n    search: '**/*.jade',\n    src: '/jade/'\n}\n```\n\n### Example gulpfile.js\n\n```javascript\nvar elixir = require('laravel-elixir');\n\nrequire('laravel-elixir-jade');\n\nelixir(function(mix) {\n\tmix.jade({\n        search: '*.jade',\n        src: '/templates/'\n\t});\n});\n```\n\n### Usage\n#### Mixins for Blade statements by other people\n**[@JaminFarr](https://github.com/JaminFarr)** made an [excellent gist of jade mixins](https://gist.github.com/JaminFarr/0b875916b39bf83c4b06) which you can use with `laravel-elixir-jade`, as well as **[@franzose](https://github.com/franzose)** whose [awesome gist can be found here](https://gist.github.com/franzose/280218e54f559040039f).\n\n#### Simple stuff\nIf you want to use something like `url()` or `URL::asset()`, you can do it like this:\n\n```jade\n//- Example Stylesheet\nlink(href!='{{ URL::asset(\"assets/css/example.css\") }}', rel='stylesheet')\n\n//- Attributes\nspan(class='{{ $cool_class }}')\n\n//- Block\ndiv\n\t| Hello {{ $username }}!\n\n//- Inline\ndiv Welcome back, {{ $username }}!\n```\n\n***NOTE: Just remember to use ```!=``` to prevent HTML from being escaped in the output or escape `\"` and `'` yourself with a backslash.***\n",
+  "readmeFilename": "README.md",
+  "_id": "laravel-elixir-jade@0.1.9",
+  "_shasum": "2fa703cc194fcda9aab53ee979ce20bded795e27",
+  "_from": "git://github.com/fidgetwidget/laravel-elixir-jade.git",
+  "_resolved": "git://github.com/fidgetwidget/laravel-elixir-jade.git#857ffd37dd1d1285511f802be73fc5713a532895",
+  "_fromGithub": true,
+  "devDependencies": {
+    "gulp-jade-find-affected": "~0.2.2"
   }
 }
