@@ -26,7 +26,7 @@ elixir.extend('jade', function (options) {
     options = _.extend({
         baseDir: './resources',
         blade: true,
-        html:false,
+        html: false,
         dest: '/views/',
         pretty: true,
         search: '**/*.jade',
@@ -49,7 +49,16 @@ elixir.extend('jade', function (options) {
     jade_options.basedir = options.baseDir + options.src;
 
     var gulp_dest = options.baseDir + options.dest;
-    var extension = (options.html === true ? '.html' : (options.blade === true ? '.blade.php' : '.php'));
+
+    var extension;
+    if(typeof options.extension === 'string') {
+        extension = options.extension;
+        if(extension.slice(0,1)!=='.') {
+            extension = '.' + extension;
+        }
+    } else {
+        extension = (options.html === true ? '.html' : (options.blade === true ? '.blade.php' : '.php'));
+    }
 
     new Task('jade', function() {
         return gulp.src(gulp_src)
