@@ -21,7 +21,12 @@ And your done!
 ### Options
 For Jade's options, see http://jade-lang.com/api/
 
-But wait, there's more! You can also set `blade: false` to compile to *.php instead of *.blade.php.
+### Additional options
+
+* blade: if `false`, it will compile to `*.php` instead of `*.blade.php`.
+* html: if `true`, it will compile to `*.html`
+* extension: for any other file extensions, set the value as string, with or without `.`
+* jadephp: **!experimental!** if `true`, it will use `gulp-jade-php`, else `gulp-jade`
 
 All other options should be pretty straight forward.
 
@@ -31,10 +36,12 @@ These are the default options:
 {
     baseDir: './resources',
     blade: true,
+    html: false,
     dest: '/views/',
     pretty: true,
     search: '**/*.jade',
-    src: '/jade/'
+    src: '/jade/',
+    jadephp: false
 }
 ```
 
@@ -52,6 +59,8 @@ elixir(function(mix) {
 	});
 });
 ```
+
+
 
 ### Usage
 #### Mixins for Blade statements by other people

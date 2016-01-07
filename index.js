@@ -1,8 +1,8 @@
 var elixir          = require('laravel-elixir');
 var gulp            = require('gulp');
-var jade            = require('gulp-jade');
+var jade;
 var rename          = require('gulp-rename');
-var plumber         =  require('gulp-plumber');
+var plumber         = require('gulp-plumber');
 var notify          = require('gulp-notify');
 var changed         = require('gulp-changed');
 var jadeInheritance = require('gulp-jade-inheritance');
@@ -30,8 +30,11 @@ elixir.extend('jade', function (options) {
         dest: '/views/',
         pretty: true,
         search: '**/*.jade',
-        src: '/jade/'
+        src: '/jade/',
+        jadephp: false
     }, options);
+
+    jade = options.jadephp ? require('gulp-jade-php') : require('gulp-jade');
 
     var gulp_src = options.baseDir + options.src + options.search;
 
