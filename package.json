@@ -1,6 +1,6 @@
 {
   "name": "laravel-elixir-jade",
-  "version": "0.2.3",
+  "version": "0.2.2",
   "description": "Simple Laravel Elixir wrapper to compile Jade",
   "main": "index.js",
   "scripts": {
