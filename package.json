@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "gulp-changed": "^1.2.0",
+    "gulp-jade": "^1.1.0",
     "gulp-jade-inheritance": "git://github.com/juanfran/gulp-jade-inheritance",
     "gulp-jade-php": "^1.1.0",
     "gulp-notify": "^2.2.0",
