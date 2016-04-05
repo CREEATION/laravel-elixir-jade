@@ -46,7 +46,8 @@ elixir.extend('jade', function (options) {
         'self',
         'debug',
         'compileDebug',
-        'compiler'
+        'compiler',
+        'locals'
     );
 
     jade_options.basedir = options.baseDir + options.src;
