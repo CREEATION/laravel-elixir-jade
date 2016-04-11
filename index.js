@@ -36,7 +36,22 @@ elixir.extend('jade', function (options) {
 
     jade = options.jadephp ? require('gulp-jade-php') : require('gulp-jade');
 
-    var gulp_src = options.baseDir + options.src + options.search;
+    var gulp_src, gulp_src_watch;
+    if(Array.isArray(options.search)) {
+        gulp_src = [];
+        gulp_src_watch = [];
+        options.search.forEach(function(search) {
+            if(search.slice(0,1)!=='!') {
+                var s = options.baseDir + options.src + search;
+                gulp_src.push(s);
+                gulp_src_watch.push(s);
+            } else {
+                gulp_src.push('!' + options.baseDir + options.src + search.substr(1));
+            }
+        });
+    } else {
+        gulp_src = gulp_src_watch = options.baseDir + options.src + options.search;
+    }
 
     var jade_options = _.pick(
         options,
@@ -80,6 +95,6 @@ elixir.extend('jade', function (options) {
                 icon: __dirname + '/../laravel-elixir/icons/pass.png'
             }));
     })
-    .watch([ options.baseDir + options.src + options.search ]);
+    .watch([ gulp_src_watch ]);
 
 });
