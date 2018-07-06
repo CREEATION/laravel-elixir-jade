@@ -1,3 +1,8 @@
+# This package is no longer maintained.
+## Please use https://github.com/BKWLD/laravel-pug instead.
+
+---
+
 laravel-elixir-jade
 =========================
 
