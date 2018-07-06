@@ -28,6 +28,7 @@ elixir.extend('jade', function (options) {
         blade: true,
         html: false,
         dest: '/views/',
+        exclude: [],
         pretty: true,
         search: '**/*.jade',
         src: '/jade/',
@@ -36,7 +37,11 @@ elixir.extend('jade', function (options) {
 
     jade = options.jadephp ? require('gulp-jade-php') : require('gulp-jade');
 
-    var gulp_src = options.baseDir + options.src + options.search;
+    var gulp_src = [options.baseDir + options.src + options.search];
+
+    for (var files of options.exclude) {
+      gulp_src.push('!' + options.baseDir + options.src + files);
+    }
 
     var jade_options = _.pick(
         options,
